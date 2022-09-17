@@ -8,7 +8,6 @@ import {
 	ListItemText,
 } from '@mui/material';
 import BasketItem from './BasketItem';
-import countItems from './utils/countItems';
 
 const Basket = ({ cartOpen, orders, removeFromOrder, closeCart }) => {
 	return (

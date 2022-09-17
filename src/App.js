@@ -7,9 +7,8 @@ import Header from './components/Header';
 import PhotoList from './components/ProductList';
 import Search from './components/Search';
 import Snack from './components/Snack';
-import countItems from './components/utils/countItems';
+import countOrders from './components/utils/countOrders';
 import useFetching from './hooks/useFetching';
-import { addOrder } from './store/ordersReducer';
 import { setProducts } from './store/productsReducer';
 
 function App() {
@@ -34,7 +33,10 @@ function App() {
 
 	return (
 		<>
-			<Header orderLen={orders.length} opentCart={() => setCartOpen(true)} />
+			<Header
+				orderLen={countOrders(orders)}
+				opentCart={() => setCartOpen(true)}
+			/>
 			<Container sx={{ mt: 1 }}>
 				<Search />
 				<PhotoList products={products} />

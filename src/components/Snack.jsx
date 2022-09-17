@@ -1,9 +1,10 @@
 import { Alert, Snackbar } from '@mui/material';
+import { setOpen } from '../store/snackReducer';
 
-const Snack = ({ isOpen, handleClose = Function.prototype }) => {
+const Snack = ({ isOpen }) => {
 	return (
-		<Snackbar open={isOpen} onClose={handleClose} autoHideDuration={3000}>
-			<Alert severity="sucess">Товар добавлен в корзину!</Alert>
+		<Snackbar open={isOpen}>
+			<Alert severity="info">Product added to cart!</Alert>
 		</Snackbar>
 	);
 };

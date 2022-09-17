@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import React from 'react';
 
-const Search = () => {
+const Search = (props) => {
 	return (
 		<TextField
 			label="Search"
@@ -9,6 +9,7 @@ const Search = () => {
 			fullWidth
 			sx={{ mb: 2 }}
 			type="search"
+			{...props}
 		/>
 	);
 };

@@ -1,8 +1,11 @@
 import { Grid } from '@mui/material';
-import React from 'react';
+import React, { memo } from 'react';
+import AlertError from './AlertError';
 import Product from './Product';
 
-const ProductList = ({ products }) => {
+const ProductList = memo(({ products, error }) => {
+	if (error) return <AlertError>{error}</AlertError>;
+
 	return (
 		<Grid container spacing={2}>
 			{products.map((product) => (
@@ -10,6 +13,6 @@ const ProductList = ({ products }) => {
 			))}
 		</Grid>
 	);
-};
+});
 
 export default ProductList;

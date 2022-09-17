@@ -1,4 +1,4 @@
-import countItems from '../components/utils/countItems';
+import countItems from '../utils/countItems';
 
 const defaultState = {
 	items: [],

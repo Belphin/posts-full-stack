@@ -1,5 +1,4 @@
 import { Alert, Snackbar } from '@mui/material';
-import { setOpen } from '../store/snackReducer';
 
 const Snack = ({ isOpen }) => {
 	return (

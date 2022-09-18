@@ -6,7 +6,12 @@ import { removeOrderById } from '../store/ordersReducer';
 const BasketItem = ({ item, onClick }) => {
 	const dispatch = useDispatch();
 	return (
-		<ListItem sx={{ display: 'flex', justifyContent: 'space-between' }}>
+		<ListItem
+			sx={{
+				display: 'flex',
+				justifyContent: 'space-between',
+				paddingRight: 1,
+			}}>
 			<Typography variant="body1">
 				{item.amount} {item.title}
 			</Typography>

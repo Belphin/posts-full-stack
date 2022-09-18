@@ -2,3 +2,35 @@ body {
 	margin: 0;
 	background-color: #e7e7e7;
 }
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+	.Basket {
+		width: 30vw;
+	}
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+	.Basket {
+		width: 40vw;
+	}
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+	.Basket {
+		width: 50vw;
+	}
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+	.Basket {
+		width: 100vw;
+	}
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+}

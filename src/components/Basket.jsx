@@ -7,19 +7,18 @@ import {
 	ListItemIcon,
 	ListItemText,
 } from '@mui/material';
-import { memo } from 'react';
 import { removeOrderById } from '../store/ordersReducer';
 import BasketItem from './BasketItem';
 
 const Basket = ({ dispatch, cartOpen, orders, closeCart }) => {
 	return (
 		<Drawer anchor="right" open={cartOpen} onClose={closeCart}>
-			<List sx={{ width: '400px' }}>
+			<List className="Basket">
 				<ListItem>
 					<ListItemIcon>
 						<ShoppingBasket />
 					</ListItemIcon>
-					<ListItemText primary="Basket" />
+					<ListItemText primary="Cart" />
 					<ListItemIcon
 						onClick={closeCart}
 						sx={{
@@ -33,7 +32,7 @@ const Basket = ({ dispatch, cartOpen, orders, closeCart }) => {
 				<Divider />
 
 				{!orders.length ? (
-					<ListItem>Basket is empty</ListItem>
+					<ListItem>Cart is empty</ListItem>
 				) : (
 					orders.map((item) => (
 						<BasketItem

@@ -1,9 +1,9 @@
 import { Alert, Snackbar } from '@mui/material';
 
-const Snack = ({ isOpen }) => {
+const Snack = ({ isOpen, children }) => {
 	return (
 		<Snackbar open={isOpen}>
-			<Alert severity="info">Product added to cart!</Alert>
+			<Alert severity="info">{children}</Alert>
 		</Snackbar>
 	);
 };

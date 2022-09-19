@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import Loader from './UI/Loader/Loader';
 import Product from './Product';
 
-const ProductList = memo(({ isLoading, products, error }) => {
+const ProductList = memo(({ isSearching, isLoading, products, error }) => {
 	if (error)
 		return (
 			<Alert severity="error">
@@ -13,14 +13,9 @@ const ProductList = memo(({ isLoading, products, error }) => {
 			</Alert>
 		);
 
-	if (isLoading)
-		return (
-			<div style={{ display: 'flex', justifyContent: 'center' }}>
-				<Loader />
-			</div>
-		);
+	if (isSearching) return <Loader />;
 
-	if (products.length === 0)
+	if (products.length === 0 && !isLoading)
 		return <Alert severity="info">Product not found</Alert>;
 
 	return (
@@ -28,6 +23,7 @@ const ProductList = memo(({ isLoading, products, error }) => {
 			{products.map((product) => (
 				<Product key={product.id} product={product} />
 			))}
+			{isLoading && <Loader />}
 		</Grid>
 	);
 });

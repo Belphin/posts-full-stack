@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
-import React from 'react';
+import React, { memo } from 'react';
 
-const Search = (props) => {
+const Search = memo((props) => {
 	return (
 		<TextField
 			label="Search"
@@ -12,6 +12,6 @@ const Search = (props) => {
 			{...props}
 		/>
 	);
-};
+});
 
 export default Search;

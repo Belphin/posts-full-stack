@@ -8,6 +8,7 @@ const defaultState = {
 };
 
 const SET_PRODUCTS = 'SET_PRODUCTS';
+const ADD_PRODUCTS = 'ADD_PRODUCTS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_LOADING = 'SET_LOADING';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
@@ -17,6 +18,11 @@ export default function productsReducer(state = defaultState, action) {
 	switch (action.type) {
 		case SET_PRODUCTS:
 			return { ...state, items: action.payload };
+		case ADD_PRODUCTS:
+			return {
+				...state,
+				items: [...state.items, ...action.payload],
+			};
 		case SET_CURRENT_PAGE:
 			return { ...state, currentPage: action.payload };
 		case SET_LOADING:
@@ -30,6 +36,7 @@ export default function productsReducer(state = defaultState, action) {
 }
 
 export const setProducts = (items) => ({ type: SET_PRODUCTS, payload: items });
+export const addProducts = (items) => ({ type: ADD_PRODUCTS, payload: items });
 export const setCurrentPage = (page) => ({
 	type: SET_CURRENT_PAGE,
 	payload: page,

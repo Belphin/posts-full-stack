@@ -61,8 +61,20 @@ body {
 	#ToUpArrow {
 		top: 1vh;
 	}
+	#Pagination {
+		display: flex;
+		justify-content: center;
+	}
 }
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
+	#Pagination {
+		display: flex;
+		justify-content: center;
+		margin: 0 -10px;
+	}
+	#Pagination button {
+		margin: 0;
+	}
 }

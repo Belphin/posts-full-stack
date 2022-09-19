@@ -15,6 +15,7 @@ import { setCartOpen } from '../store/ordersReducer';
 import Search from '../components/Search';
 import useScroll from '../hooks/useScroll';
 import ToUpArrow from '../components/ToUpArrow';
+import { setOpen } from '../store/snackReducer';
 
 const Main = memo(() => {
 	const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Main = memo(() => {
 	const limit = useSelector((state) => state.products.limit);
 	const currentPage = useSelector((state) => state.products.currentPage);
 	const isLoading = useSelector((state) => state.products.isLoading);
+	const isLoadingPage = useSelector((state) => state.products.isLoadingPage);
 	const totalCount = useSelector((state) => state.products.totalCount);
 	const error = useSelector((state) => state.products.error);
 	const orders = useSelector((state) => state.orders.items);
@@ -37,15 +39,16 @@ const Main = memo(() => {
 	const lastElement = useRef();
 	const intersecting = useScroll(
 		lastElement,
-		currentPage < pagesCount && products.length && !isLoading,
+		currentPage < pagesCount && products.length && !isLoadingPage && !isLoading,
 		() => {
+			console.log(1);
 			dispatch(addProductsPage(currentPage + 1, limit));
 			dispatch(setCurrentPage(currentPage + 1));
 		}
 	);
 
 	const top = useRef();
-	const toTopArrowIntersecting = useScroll(
+	const toTopArrowObserver = useScroll(
 		top,
 		true,
 		() => setToTopArrow(false),
@@ -70,10 +73,18 @@ const Main = memo(() => {
 		}
 	}
 
+	const handleClose = (event, reason) => {
+		if (reason === 'clickaway') {
+			return;
+		}
+		dispatch(setOpen(false));
+	};
+
 	return (
 		<>
 			<Container sx={{ mt: 1 }}>
 				<Pagination
+					id="Pagination"
 					ref={top}
 					count={pagesCount}
 					color="primary"
@@ -88,7 +99,7 @@ const Main = memo(() => {
 					}}
 				/>
 				<ProductList
-					isSearching={searchValue && isLoading}
+					isLoadingPage={isLoadingPage}
 					isLoading={isLoading}
 					products={products}
 					error={error}
@@ -102,7 +113,9 @@ const Main = memo(() => {
 				cartOpen={isCartOpen}
 				closeCart={() => dispatch(setCartOpen(false))}
 			/>
-			<Snack isOpen={isSnackOpen}>Product added to cart!</Snack>
+			<Snack handleClose={handleClose} isOpen={isSnackOpen}>
+				Product added to cart!
+			</Snack>
 		</>
 	);
 });

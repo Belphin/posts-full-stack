@@ -20,23 +20,9 @@ module.exports = {
 				use: ['babel-loader'],
 			},
 			{
-				test: /\.s(a|c)ss$/,
+				test: /\.css$/,
 				exclude: /node_modules/,
-				use: [
-					production ? MiniCssExtractPlugin.loader : 'style-loader',
-					{
-						loader: 'css-loader',
-						options: {
-							sourceMap: !production,
-						},
-					},
-					{
-						loader: 'sass-loader',
-						options: {
-							sourceMap: !production,
-						},
-					},
-				],
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.(jpg|jpeg|png|svg)$/,

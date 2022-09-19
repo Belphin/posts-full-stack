@@ -2,6 +2,7 @@ import {
 	addProducts,
 	setError,
 	setLoading,
+	setLoadingPage,
 	setProducts,
 	setTotalCount,
 } from '../store/productsReducer';
@@ -10,7 +11,7 @@ import axios from 'axios';
 export const getProducts = (currentPage, limit) => {
 	return async (dispatch) => {
 		try {
-			dispatch(setLoading(true));
+			dispatch(setLoadingPage(true));
 			const response = await axios.get(
 				`https://jsonplaceholder.typicode.com/photos?_limit=${limit}&_page=${currentPage}`
 			);
@@ -19,7 +20,7 @@ export const getProducts = (currentPage, limit) => {
 		} catch (error) {
 			dispatch(setError(error));
 		} finally {
-			dispatch(setLoading(false));
+			dispatch(setLoadingPage(false));
 		}
 	};
 };
@@ -27,7 +28,7 @@ export const getProducts = (currentPage, limit) => {
 export const getSearchedProducts = (searchQuery) => {
 	return async (dispatch) => {
 		try {
-			dispatch(setLoading(true));
+			dispatch(setLoadingPage(true));
 			const response = await axios.get(
 				`https://jsonplaceholder.typicode.com/photos/`
 			);
@@ -39,7 +40,7 @@ export const getSearchedProducts = (searchQuery) => {
 		} catch (error) {
 			dispatch(setError(error));
 		} finally {
-			dispatch(setLoading(false));
+			dispatch(setLoadingPage(false));
 		}
 	};
 };

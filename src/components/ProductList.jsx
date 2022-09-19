@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import Loader from './UI/Loader/Loader';
 import Product from './Product';
 
-const ProductList = memo(({ isSearching, isLoading, products, error }) => {
+const ProductList = memo(({ isLoadingPage, isLoading, products, error }) => {
 	if (error)
 		return (
 			<Alert severity="error">
@@ -13,7 +13,7 @@ const ProductList = memo(({ isSearching, isLoading, products, error }) => {
 			</Alert>
 		);
 
-	if (isSearching) return <Loader />;
+	if (isLoadingPage) return <Loader />;
 
 	if (products.length === 0 && !isLoading)
 		return <Alert severity="info">Product not found</Alert>;

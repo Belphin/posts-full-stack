@@ -1,6 +1,7 @@
 const defaultState = {
 	items: [],
-	isLoading: true,
+	isLoading: false,
+	isLoadingPage: true,
 	currentPage: 1,
 	limit: 12,
 	totalCount: 0,
@@ -11,6 +12,7 @@ const SET_PRODUCTS = 'SET_PRODUCTS';
 const ADD_PRODUCTS = 'ADD_PRODUCTS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_LOADING = 'SET_LOADING';
+const SET_LOADING_PAGE = 'SET_LOADING_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const SET_ERROR = 'SET_ERROR';
 
@@ -27,6 +29,8 @@ export default function productsReducer(state = defaultState, action) {
 			return { ...state, currentPage: action.payload };
 		case SET_LOADING:
 			return { ...state, isLoading: action.payload };
+		case SET_LOADING_PAGE:
+			return { ...state, isLoadingPage: action.payload };
 		case SET_TOTAL_COUNT:
 			return { ...state, totalCount: action.payload };
 		case SET_ERROR:
@@ -43,6 +47,10 @@ export const setCurrentPage = (page) => ({
 });
 export const setLoading = (bool) => ({
 	type: SET_LOADING,
+	payload: bool,
+});
+export const setLoadingPage = (bool) => ({
+	type: SET_LOADING_PAGE,
 	payload: bool,
 });
 export const setTotalCount = (value) => ({

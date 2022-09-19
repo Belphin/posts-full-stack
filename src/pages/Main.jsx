@@ -6,7 +6,7 @@ import ProductList from '../components/ProductList';
 import Snack from '../components/UI/Snack';
 import useDebounce from '../hooks/useDebounce';
 import { setCurrentPage } from '../store/productsReducer';
-import { getProducts } from '../actions/products';
+import { getProducts, getSearchedProducts } from '../actions/products';
 import { setCartOpen } from '../store/ordersReducer';
 import Search from '../components/Search';
 
@@ -28,7 +28,7 @@ const Main = () => {
 	const isSnackOpen = useSelector((state) => state.snack.isOpen);
 
 	useEffect(() => {
-		dispatch(getProducts(searchValue, currentPage, limit));
+		dispatch(getProducts(currentPage, limit));
 	}, [currentPage]);
 
 	const handleChange = (event, value) => {
@@ -37,7 +37,11 @@ const Main = () => {
 
 	function search(searchValue) {
 		dispatch(setCurrentPage(1));
-		dispatch(getProducts(searchValue, currentPage, limit));
+		if (searchValue) {
+			dispatch(getSearchedProducts(searchValue));
+		} else {
+			dispatch(getProducts(currentPage, limit));
+		}
 	}
 
 	return (

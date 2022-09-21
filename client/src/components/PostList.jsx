@@ -1,15 +1,19 @@
 import { Grid } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
 import Post from "./Post";
+import Loader from "./UI/Loader/Loader";
 
-const PostList = ({ posts }) => {
+const PostList = memo(({ posts, isLoading }) => {
 	return (
-		<Grid container spacing={2}>
-			{posts.map((post) => (
-				<Post key={post._id} post={post} />
-			))}
-		</Grid>
+		<>
+			<Grid container spacing={2}>
+				{posts.map((post) => (
+					<Post key={post._id} post={post} />
+				))}
+			</Grid>
+			{isLoading && <Loader />}
+		</>
 	);
-};
+});
 
 export default PostList;

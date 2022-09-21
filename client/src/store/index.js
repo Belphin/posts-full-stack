@@ -1,10 +1,7 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
 import postsReducer from "./postsReducer";
-import createSagaMiddleware from "redux-saga";
-import { postsWatcher } from "../saga/postsSaga";
 import { composeWithDevTools } from "redux-devtools-extension";
-
-const sagaMiddleware = createSagaMiddleware();
+import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
 	posts: postsReducer,
@@ -12,7 +9,5 @@ const rootReducer = combineReducers({
 
 export const store = createStore(
 	rootReducer,
-	composeWithDevTools(applyMiddleware(sagaMiddleware))
+	composeWithDevTools(applyMiddleware(thunk))
 );
-
-sagaMiddleware.run(postsWatcher);

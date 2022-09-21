@@ -6,7 +6,7 @@
 
   - React
   - Redux
-  - Redux-saga
+  - Redux-thunk
   - Material UI
 
 - Backend:

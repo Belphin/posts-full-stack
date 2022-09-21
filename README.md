@@ -1,10 +1,15 @@
-# shop-front-end
+# posts-full-stack
 
-## Material UI & Webpack & React & Redux app
+#### The project uses:
 
-Imitation of the work of the client part of the web application.
-**Axios** and **redux-thunk** are used for asynchronous requests.
+- Frontend:
 
-**_I see no reason to make a product page because there is very little data._**
+  - React
+  - Redux
+  - Redux-saga
+  - Material UI
 
-[**View the project**](https://belphin.github.io/shop-front-end/dist/)
+- Backend:
+  - Express js
+  - Node js
+  - Mongodb

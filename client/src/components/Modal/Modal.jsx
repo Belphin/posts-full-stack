@@ -13,18 +13,23 @@ const Modal = ({ onClick, closeModal, setPostValue, postValue }) => {
 					value={postValue.title}
 					label="Title"
 					variant="outlined"
+					sx={{ width: "70%" }}
 				/>
 				<TextField
 					onChange={(e) => setPostValue({ ...postValue, body: e.target.value })}
 					value={postValue.body}
 					label="Body"
 					variant="outlined"
+					sx={{ width: "70%" }}
 				/>
 				<Button
 					variant="contained"
 					color="success"
 					size="large"
-					onClick={onClick}>
+					onClick={() => {
+						onClick();
+						closeModal();
+					}}>
 					Create post
 				</Button>
 			</form>

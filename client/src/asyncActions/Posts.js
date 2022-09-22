@@ -1,5 +1,11 @@
 import axios from "axios";
-import { setError, setLoading, setPosts } from "../store/postsReducer";
+import {
+	addPost,
+	deletePost,
+	setError,
+	setLoading,
+	setPosts,
+} from "../store/postsReducer";
 
 export const getPostsPage = (page, limit) => {
 	return async function (dispatch) {
@@ -24,6 +30,20 @@ export const createPost = (postValue) => {
 				"http://localhost:5000/api/posts",
 				postValue
 			);
+			dispatch(addPost(responce.data));
+		} catch (error) {
+			dispatch(setError(error));
+		}
+	};
+};
+
+export const deletePostById = (id) => {
+	return async function (dispatch) {
+		try {
+			const responce = await axios.delete(
+				`http://localhost:5000/api/posts/${id}`
+			);
+			dispatch(deletePost(responce.data._id));
 		} catch (error) {
 			dispatch(setError(error));
 		}

@@ -6,9 +6,10 @@ import {
 	Typography,
 	Button,
 } from "@mui/material";
-import React from "react";
+import React, { memo } from "react";
+import { deletePostById } from "../asyncActions/Posts";
 
-const Post = ({ post }) => {
+const Post = memo(({ post, dispatch, updatePosts }) => {
 	return (
 		<Grid item xs={12} md={6} lg={4}>
 			<Card
@@ -28,10 +29,19 @@ const Post = ({ post }) => {
 				</CardContent>
 				<CardActions>
 					<Button size="small">Learn More</Button>
+					<Button
+						size="small"
+						color="error"
+						onClick={async () => {
+							await dispatch(deletePostById(post._id));
+							updatePosts();
+						}}>
+						Delete
+					</Button>
 				</CardActions>
 			</Card>
 		</Grid>
 	);
-};
+});
 
 export default Post;

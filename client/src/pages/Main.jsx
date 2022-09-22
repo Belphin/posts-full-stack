@@ -48,6 +48,7 @@ const Main = () => {
 							shape="rounded"
 							color="primary"
 							onChange={changePage}
+							size="large"
 						/>
 					</Stack>
 				</div>
@@ -63,16 +64,14 @@ const Main = () => {
 				<Modal
 					postValue={postValue}
 					setPostValue={setPostValue}
-					onClick={async () => {
-						await dispatch(createPost(postValue));
+					onClick={async (title, body) => {
+						await dispatch(createPost({ title, body }));
 						updatePosts(page, limit);
 					}}
-					closeModal={() => {
-						setModalOpen(false);
-						setPostValue({ title: "", body: "" });
-					}}
+					closeModal={() => setModalOpen(false)}
 				/>
 			)}
+			<br />
 		</>
 	);
 };

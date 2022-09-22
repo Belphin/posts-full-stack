@@ -6,12 +6,12 @@ import InfoAlert from "./UI/InfoAlert";
 import Loader from "./UI/Loader/Loader";
 
 const PostList = memo(({ error, dispatch, posts, isLoading, updatePosts }) => {
-	if (error) return <ErrorAlert error={error} />;
-
-	if (isLoading) return <Loader />;
+	if (error) return <ErrorAlert error={error} dispatch={dispatch} />;
 
 	if (!isLoading && !posts.length)
 		return <InfoAlert>Posts not found!</InfoAlert>;
+
+	if (isLoading) return <Loader />;
 
 	return (
 		<>

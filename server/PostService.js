@@ -13,9 +13,29 @@ class PostService {
 		return posts;
 	}
 
+	async getPost(id) {
+		const post = await Post.findById(id);
+		return post;
+	}
+
 	async delete(id) {
 		const post = await Post.findByIdAndDelete(id);
 		return post;
+	}
+
+	async update(post) {
+		if (!post._id) throw new Error("id not found");
+		const newPost = await Post.findByIdAndUpdate(post._id, post, {
+			new: true,
+		});
+		return newPost;
+	}
+
+	async search(title) {
+		const posts = await Post.find({ title: title });
+		if (posts.length) {
+			return posts;
+		} else return [];
 	}
 }
 

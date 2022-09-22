@@ -7,9 +7,11 @@ import {
 	Button,
 } from "@mui/material";
 import React, { memo } from "react";
+import { useNavigate } from "react-router-dom";
 import { deletePostById } from "../asyncActions/Posts";
 
 const Post = memo(({ post, dispatch, updatePosts }) => {
+	const route = useNavigate();
 	return (
 		<Grid item xs={12} md={6} lg={4}>
 			<Card
@@ -24,11 +26,13 @@ const Post = memo(({ post, dispatch, updatePosts }) => {
 						{post.title}
 					</Typography>
 					<Typography>
-						{post.body.length > 40 ? post.body.slice(0, 40) + "..." : post.body}
+						{post.body.length > 35 ? post.body.slice(0, 35) + "..." : post.body}
 					</Typography>
 				</CardContent>
 				<CardActions>
-					<Button size="small">Learn More</Button>
+					<Button size="small" onClick={() => route(`/post/${post._id}`)}>
+						Learn More
+					</Button>
 					<Button
 						size="small"
 						color="error"

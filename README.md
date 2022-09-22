@@ -4,13 +4,14 @@
 
 This project is educational and is intended for mastering CRUD
 
-#### The project uses:
+### The project uses:
 
 - Frontend:
 
   - React
   - Redux
   - Redux-thunk
+  - WebPack
   - Material UI
 
 - Backend:

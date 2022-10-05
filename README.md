@@ -10,7 +10,7 @@ This project is educational and is intended for mastering CRUD
 
   - React
   - Redux
-  - Redux-thunk
+  - Redux-saga
   - WebPack
   - Material UI
 
@@ -18,3 +18,7 @@ This project is educational and is intended for mastering CRUD
   - Express js
   - Node js
   - Mongodb
+
+[desktop](./img/desktop.png)
+
+[postPage](./img/postPage.png)

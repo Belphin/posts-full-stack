@@ -19,6 +19,10 @@ This project is educational and is intended for mastering CRUD
   - Node js
   - Mongodb
 
+## Main page
+
 <img src="./img/desktop.png" alt="desktop"/>
+
+## Post page
 
 <img src="./img/postPage.png" alt="postPage"/>

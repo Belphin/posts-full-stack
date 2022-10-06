@@ -10,7 +10,7 @@ This project is educational and is intended for mastering CRUD
 
   - React
   - Redux
-  - Redux-saga
+  - Redux-thank
   - WebPack
   - Material UI
 

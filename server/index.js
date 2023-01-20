@@ -11,7 +11,7 @@ app.use("/api", router);
 
 const PORT = 5000;
 const DB_URL =
-	"mongodb+srv://user:user@cluster0.i0gy1fe.mongodb.net/?retryWrites=true&w=majority";
+	"mongodb+srv://user:user@cluster0.mjnj4bh.mongodb.net/?retryWrites=true&w=majority";
 
 async function startApp() {
 	try {

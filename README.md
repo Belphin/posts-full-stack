@@ -8,11 +8,13 @@ This project is educational and is intended for mastering CRUD
 
 - Frontend:
 
-  - React
-  - Redux
-  - Redux-thank
-  - WebPack
-  - Material UI
+Old-client:
+
+- React
+- Redux
+- Redux-thank
+- WebPack
+- Material UI
 
 - Backend:
 

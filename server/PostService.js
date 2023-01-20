@@ -6,11 +6,12 @@ class PostService {
 		return createdPost;
 	}
 
-	async getPage(limit, page) {
+	async getPosts(limit = 0, page = 1) {
 		const posts = await Post.find()
 			.skip((page - 1) * limit)
 			.limit(limit);
-		return posts;
+		const maxCount = await Post.find().count();
+		return { maxCount, posts };
 	}
 
 	async getPost(id) {

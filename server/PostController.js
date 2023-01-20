@@ -4,18 +4,17 @@ class PostController {
 	async create(req, res) {
 		try {
 			const post = await PostService.create(req.body);
-
 			res.json(post);
 		} catch (e) {
 			res.status(500).json(e);
 		}
 	}
 
-	async getPage(req, res) {
+	async getPosts(req, res) {
 		try {
-			const { limit, page } = req.params;
-			const posts = await PostService.getPage(limit, page);
-			res.json(posts);
+			const { limit, page } = req.query;
+			const data = await PostService.getPosts(limit, page);
+			res.json(data);
 		} catch (e) {
 			res.status(500).json(e);
 		}

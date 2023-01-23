@@ -1,3 +1,4 @@
-old-client/node_modules
+old-client
 client/node_modules
+client/dist
 server/node_modules

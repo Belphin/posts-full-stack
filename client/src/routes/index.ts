@@ -1,5 +1,5 @@
 import PostPage from "../pages/PostPage";
-import PostsList from "../pages/PostsList";
+import Main from "../pages/Main";
 
 interface IRoute {
 	patch: string;
@@ -7,6 +7,6 @@ interface IRoute {
 }
 
 export const routes: IRoute[] = [
-	{ patch: "*", element: PostsList },
+	{ patch: "*", element: Main },
 	{ patch: "/posts/:id", element: PostPage },
 ];

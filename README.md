@@ -6,17 +6,23 @@ This project is educational and is intended for mastering CRUD
 
 ### The project uses:
 
-- Frontend:
+- Old-client:
 
-Old-client:
+  - React
+  - Redux
+  - Redux-thank
+  - WebPack
+  - Material UI
 
-- React
-- Redux
-- Redux-thank
-- WebPack
-- Material UI
+- Client:
 
-- Backend:
+  - React
+  - Redux Toolkit
+  - RTK Query
+  - WebPack
+  - Material UI
+
+- Server:
 
   - Express js
   - Node js

@@ -3,11 +3,11 @@ import { Button, TextField } from "@mui/material";
 import cl from "./Modal.module.css";
 
 interface ModalProps {
-	onCreate: (title: string, body: string) => Promise<void>;
+	onClick: (title: string, body: string) => Promise<any>;
 	closeModal: () => void;
 }
 
-const Modal: FC<ModalProps> = ({ onCreate, closeModal }) => {
+const Modal: FC<ModalProps> = ({ onClick, closeModal }) => {
 	const [post, setPost] = useState({ title: "", body: "" });
 
 	return (
@@ -36,7 +36,7 @@ const Modal: FC<ModalProps> = ({ onCreate, closeModal }) => {
 					color="success"
 					size="large"
 					onClick={() => {
-						onCreate(post.title, post.body);
+						onClick(post.title, post.body);
 						setPost({ title: "", body: "" });
 						closeModal();
 					}}>

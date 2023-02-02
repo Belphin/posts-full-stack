@@ -49,7 +49,7 @@ const Main = () => {
 				{data?.posts && <PostList posts={data.posts} />}
 			</Container>
 			{isModalOpen && (
-				<Modal onCreate={handleCreate} closeModal={() => setModalOpen(false)} />
+				<Modal onClick={handleCreate} closeModal={() => setModalOpen(false)} />
 			)}
 			<br />
 		</>

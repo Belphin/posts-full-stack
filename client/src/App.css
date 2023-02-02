@@ -1,3 +1,24 @@
+html {
+	overflow-x: hidden;
+}
+
 body {
 	margin: 0;
+	overflow-x: hidden;
+}
+
+.post__buttons {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.post {
+	display: flex;
+	flex-direction: column;
+	width: 90vw;
+	margin: 0 auto;
+}
+.post__title {
+	align-self: center;
 }
